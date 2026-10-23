@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  rca-suite:
+    build: .
+    container_name: aura-qms-pharma
+    ports:
+      - "8000:8000"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GROQ_MODEL=openai/gpt-oss-120b
+      - GROQ_FALLBACK_MODEL=qwen/qwen3.8-27b
+      - DATABASE_URL=sqlite:///./rca_pharma.db
+    restart: unless-stopped

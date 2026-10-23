@@ -33,6 +33,17 @@ app.add_middleware(
 app.include_router(investigations.router)
 app.include_router(ai_analysis.router)
 
+# Mount built React frontend if available (enables unified single-service deployment)
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../frontend/dist"))
+if os.path.exists(frontend_dist):
+    logger.info(f"Mounting production frontend from: {frontend_dist}")
+    app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="frontend")
+
+
 
 @app.on_event("startup")
 def seed_initial_demo_if_empty():
