@@ -82,7 +82,22 @@ export default function Header() {
         </div>
         <div>
           <div className="brand-title">AURA-QMS <span style={{ color: 'var(--cyan-primary)', fontSize: '0.85em' }}>• RCA</span></div>
-          <div className="brand-subtitle">Active Pharmaceutical Ingredients Suite</div>
+          <div className="brand-subtitle" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <span>Active Pharmaceutical Ingredients Suite</span>
+            <span style={{
+              fontSize: '0.65rem',
+              padding: '1px 6px',
+              borderRadius: '999px',
+              background: 'rgba(6, 182, 212, 0.15)',
+              border: '1px solid rgba(6, 182, 212, 0.3)',
+              color: '#38bdf8',
+              letterSpacing: '0.04em',
+              fontWeight: 600,
+              textTransform: 'uppercase'
+            }}>
+              GitHub Live
+            </span>
+          </div>
         </div>
       </div>
 

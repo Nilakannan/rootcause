@@ -81,6 +81,33 @@ npm run dev -- --host 127.0.0.1 --port 5173
 
 ---
 
+## 3. Deployment & CI/CD on GitHub
+
+This repository features automated **GitHub Actions CI/CD** for both the static web application and the full-stack container:
+
+### A. Live Interactive Showcase on GitHub Pages
+- **URL**: `https://nilakannan.github.io/rootcause/`
+- **Workflow**: [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml)
+- **Features**: Automatically compiles the React 19 app with Vite on push to `main`, providing an interactive zero-config showcase with pre-loaded API deviation presets, dynamic 5 Whys, 6M Fishbone diagrams, and FDA inspection PDF generation.
+- **Enabling GitHub Pages on the Repository**:
+  1. Go to your GitHub repository: `https://github.com/Nilakannan/rootcause`
+  2. Click **Settings** > **Pages** (in the left sidebar).
+  3. Under **Build and deployment > Source**, select **GitHub Actions**.
+  4. The next push to `main` (or clicking *Run workflow* in Actions) will automatically publish the site!
+
+### B. Full-Stack Production Container (GitHub Packages / GHCR)
+- **Registry**: `ghcr.io/nilakannan/rootcause:latest`
+- **Workflow**: [`.github/workflows/docker-publish.yml`](.github/workflows/docker-publish.yml)
+- **Run anywhere with a single command**:
+  ```bash
+  docker run -d -p 8000:8000 \
+    -e GROQ_API_KEY="your_groq_api_key_here" \
+    ghcr.io/nilakannan/rootcause:latest
+  ```
+  *(Access the complete unified app at `http://localhost:8000`)*
+
+---
+
 ## 4. Pre-Loaded Pharma API Presets for Quick Demo
 
 1. **Preset 1 (Crystallization & Synthesis)**:
