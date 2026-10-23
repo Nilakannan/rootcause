@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+
+# Python cache & virtualenvs
+__pycache__/
+backend/app/**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+
+# Database files
+*.db
+backend/rca_pharma.db
+
+# Secrets & Local configurations (protect API keys)
+.env
+backend/.env
+
+# IDE & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
